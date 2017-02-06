@@ -19,7 +19,7 @@ public class Problem2 {
         long fibResult = 1;
         while (fibResult < 4000000) {
             fibResult = fibonacci(i);
-            if (fibResult % 2 == 0){
+            if (fibResult % 2 == 0) {
                 sum += fibResult;
             }
             i++;
