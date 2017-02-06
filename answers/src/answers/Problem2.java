@@ -13,7 +13,7 @@ package answers;
  * find the sum of the even-valued terms.
  */
 public class Problem2 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         long sum = 0;
         int i = 1;
         long fibResult = 1;
@@ -27,7 +27,7 @@ public class Problem2 {
         System.out.println(sum);
     }
 
-    public static long fibonacci(int n){
+    public static long fibonacci(int n) {
         if (n < 2) {
             return n;
         }
