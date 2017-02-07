@@ -16,7 +16,7 @@ public class Problem1 {
     public static int sumMultiples(int multiple, int max) {
         int sum = 0;
         int current = multiple;
-        while (current <= max) {
+        while (current < max) {
             sum = sum + current;
             current = current + multiple;
         }
