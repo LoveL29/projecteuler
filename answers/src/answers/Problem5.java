@@ -13,10 +13,10 @@ public class Problem5 {
     public static void main(String[] args) {
         int result = 20;
         boolean isAnswer = false;
-        while (isAnswer == false) {
+        while (!isAnswer) {
             result++;
             isAnswer = true;
-            for (int i = 1; i <= 20; i++) {
+            for (int i = 2; i <= 20; i++) {
                 if (result % i != 0) {
                     isAnswer = false;
                     break;
