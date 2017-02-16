@@ -38,7 +38,7 @@ public class Problem12 {
             if (triangleSqrt * triangleSqrt == triangleNum) {
                 factorsCount--;
             }
-            if (factorsCount >= 100) {
+            if (factorsCount >= 500) {
                 break;
             }
             count = 1;
