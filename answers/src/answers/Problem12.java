@@ -27,13 +27,18 @@ public class Problem12 {
         int count = 1;
         int factorsCount = 0;
         for (int i = 2; ; i++) {
-            while (count < Math.sqrt(triangleNum)) {
+            int triangleSqrt = (int) Math.sqrt(triangleNum);
+            while (count <= triangleSqrt) {
                 if (triangleNum % count == 0) {
                     factorsCount++;
                 }
                 count++;
             }
-            if (factorsCount * 2 >= 500) {
+            factorsCount *= 2;
+            if (triangleSqrt * triangleSqrt == triangleNum) {
+                factorsCount--;
+            }
+            if (factorsCount >= 100) {
                 break;
             }
             count = 1;
