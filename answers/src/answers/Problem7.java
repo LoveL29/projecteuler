@@ -23,11 +23,14 @@ public class Problem7 {
                 if (i % prime == 0) {
                     isPrime = false;
                 }
+                if (prime > Math.sqrt(i)) {
+                    break;
+                }
             }
             if (isPrime) {
                 primeList.add(i);
             }
-            i++;
+            i = i + 2;
         }
         System.out.println(primeList.get(10000));
     }
