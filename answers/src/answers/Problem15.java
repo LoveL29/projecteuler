@@ -16,8 +16,8 @@ public class Problem15 {
         long result = 1;
         for (int i = 0; i < 20; i++)
         {
-            result = result * (40-i);
-            result = result / (i+1);
+            result = result * (40 - i);
+            result = result / (i + 1);
         }
         System.out.println(result);
     }
