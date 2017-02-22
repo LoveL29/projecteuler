@@ -27,15 +27,25 @@ public class Problem18 {
             {63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31},
             {4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23}
         };
-        for (int bottom = triangle.length - 1; bottom > 0; bottom--) {
-            for (int i = 0; i < triangle[bottom].length - 1; i++) {
-                if (triangle[bottom][i] > triangle[bottom][i + 1]) {
-                    triangle[bottom - 1][i] += triangle[bottom][i];
-                } else {
-                    triangle[bottom - 1][i] += triangle[bottom][i + 1];
-                }
-            }
+        // answer with loops
+//        for (int bottom = triangle.length - 1; bottom > 0; bottom--) {
+//            for (int i = 0; i < triangle[bottom].length - 1; i++) {
+//                if (triangle[bottom][i] > triangle[bottom][i + 1]) {
+//                    triangle[bottom - 1][i] += triangle[bottom][i];
+//                } else {
+//                    triangle[bottom - 1][i] += triangle[bottom][i + 1];
+//                }
+//            }
+//        }
+//        System.out.println(triangle[0][0]);
+        // answer with recursion
+        System.out.println(max(triangle, 0, 0));
+    }
+
+    private static int max(int[][] triangle, int y, int x) {
+        if (y == triangle.length - 1) {
+            return triangle[y][x];
         }
-        System.out.println(triangle[0][0]);
+        return triangle[y][x] + Math.max(max(triangle, y + 1, x), max(triangle, y + 1, x + 1));
     }
 }
