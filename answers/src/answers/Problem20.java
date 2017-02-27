@@ -22,13 +22,10 @@ public class Problem20 {
         System.out.println(answer);
     }
     private static BigInteger factorials(BigInteger num) {
-        BigInteger result = BigInteger.ONE;
         if (num.equals(BigInteger.ONE)) {
             return BigInteger.ONE;
         } else {
-            result = result.multiply(num);
-            result = result.multiply(factorials(num.subtract(BigInteger.ONE)));
+            return num.multiply(factorials(num.subtract(BigInteger.ONE)));
         }
-        return result;
     }
 }
