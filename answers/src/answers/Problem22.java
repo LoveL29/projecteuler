@@ -20,34 +20,25 @@ import java.util.Arrays;
  * What is the total of all the name scores in the file?
  */
 public class Problem22 {
-    public static void main(String[] args) {
-        try {
-            long sum = 0;
-            String path = Problem22.class.getResource("").getPath();
-            File f = new File(path + "names.txt");
-            BufferedReader reader;
-            String list[];
-            StringBuilder contents = new StringBuilder();
-            String text;
-            reader = new BufferedReader(new FileReader(f));
-            while ((text = reader.readLine()) != null) {
-                contents.append(text).append(System.getProperty("line.separator"));
+    public static void main(String[] args) throws IOException {
+        long sum = 0;
+        File f = new File("./data/names.txt");
+        BufferedReader reader;
+        String list[];
+        StringBuilder contents = new StringBuilder();
+        reader = new BufferedReader(new FileReader(f));
+        contents.append(reader.readLine());
+        String str = contents.toString();
+        str = str.replaceAll("\"", "");
+        list = str.split(",");
+        Arrays.sort(list);
+        for (int i = 0; i < list.length; i++) {
+            long oneSum = 0;
+            for(int j = 0; j < list[i].length(); j++) {
+                oneSum += (list[i].charAt(j) - 'A' + 1);
             }
-            String str = contents.toString();
-            str = str.replaceAll("\"", "");
-            str = str.replace("\n", "");
-            list = str.split(",");
-            Arrays.sort(list);
-            for (int i = 0; i < list.length; i++) {
-                long oneSum = 0;
-                for(int j = 0; j < list[i].length(); j++) {
-                    oneSum += (list[i].charAt(j) - 'A' + 1);
-                }
-                sum += oneSum * (i + 1);
-            }
-            System.out.println(sum);
-        } catch (IOException e) {
-            e.printStackTrace();
+            sum += oneSum * (i + 1);
         }
+        System.out.println(sum);
     }
 }
