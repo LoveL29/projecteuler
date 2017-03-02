@@ -1,7 +1,5 @@
 package answers;
 
-import com.sun.tools.internal.xjc.reader.dtd.bindinfo.BIAttribute;
-
 import java.math.BigInteger;
 
 /**
@@ -30,16 +28,16 @@ import java.math.BigInteger;
  */
 public class Problem25 {
     public static void main(String[] args) {
-        String maxStr = "1";
-        while (maxStr.length() < 1000) {
-            maxStr += "0";
+        String min1000DigitStr = "1";
+        while (min1000DigitStr.length() < 1000) {
+            min1000DigitStr += "0";
         }
-        BigInteger max = new BigInteger(maxStr);
+        BigInteger min1000DigitNum = new BigInteger(min1000DigitStr);
         int count = 2;
         BigInteger a = BigInteger.ZERO;
         BigInteger b = BigInteger.ONE;
         BigInteger c = BigInteger.ONE;
-        while (a.compareTo(max) < 0) {
+        while (a.compareTo(min1000DigitNum) < 0) {
             a = b.add(c);
             b = c;
             c = a;
