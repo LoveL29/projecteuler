@@ -22,13 +22,8 @@ import java.util.Arrays;
 public class Problem22 {
     public static void main(String[] args) throws IOException {
         long sum = 0;
-        File f = new File("./data/names.txt");
-        BufferedReader reader;
         String list[];
-        StringBuilder contents = new StringBuilder();
-        reader = new BufferedReader(new FileReader(f));
-        contents.append(reader.readLine());
-        String str = contents.toString();
+        String str = readDataToStr("./data/names.txt");
         str = str.replaceAll("\"", "");
         list = str.split(",");
         Arrays.sort(list);
@@ -40,5 +35,14 @@ public class Problem22 {
             sum += oneSum * (i + 1);
         }
         System.out.println(sum);
+    }
+
+    private static String readDataToStr(String file) throws IOException {
+        File f = new File(file);
+        BufferedReader reader;
+        StringBuilder contents = new StringBuilder();
+        reader = new BufferedReader(new FileReader(f));
+        contents.append(reader.readLine());
+        return contents.toString();
     }
 }
