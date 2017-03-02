@@ -22,13 +22,12 @@ public class Problem24 {
     public static void main(String[] args) {
         String answer = "";
         int result = 1000000;
-        int sum = 0;
         List<String> numStr = new ArrayList<>(Arrays.asList("0", "1", "2", "3", "4", "5", "6", "7", "8", "9"));
         while (numStr.size() > 1) {
-            int lexCount = factorials(numStr.size() - 1);
-            for(int i = 0; i < numStr.size(); i++) {
-                 if (sum + (lexCount * (i + 1)) >= result) {
-                     sum += lexCount * i;
+            int lexCount = factorial(numStr.size() - 1);
+            for (int i = 0; i < numStr.size(); i++) {
+                 if (lexCount * (i + 1) >= result) {
+                     result -= lexCount * i;
                      answer += numStr.get(i);
                      numStr.remove(i);
                      break;
@@ -39,11 +38,11 @@ public class Problem24 {
         System.out.println(answer);
     }
 
-    private static int factorials(int num) {
+    private static int factorial(int num) {
         if (num == 1) {
             return 1;
         } else {
-            return num * factorials(num - 1);
+            return num * factorial(num - 1);
         }
     }
 }
