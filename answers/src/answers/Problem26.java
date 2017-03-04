@@ -29,20 +29,28 @@ public class Problem26 {
         int longestNum = 0;
         int longestLen = 0;
         for (int i = 1; i <= 1000; i++) {
-            int remaining = 1;
-            int position = 0;
-            HashMap<Integer, Integer> remainingMap = new HashMap<>();
-            while (remaining != 0 && remainingMap.getOrDefault(remaining, 0) == 0) {
-                remainingMap.put(remaining, position);
-                remaining *= 10;
-                remaining %= i;
-                position++;
-            }
-            if (remaining != 0 && position - remainingMap.getOrDefault(remaining, 0) > longestLen) {
-                longestLen = position;
+            int len = getRepeatLen(i);
+            if (len > longestLen) {
+                longestLen = len;
                 longestNum = i;
             }
         }
         System.out.println(longestNum);
+    }
+
+    private static int getRepeatLen(int num) {
+        int remaining = 1;
+        int position = 0;
+        HashMap<Integer, Integer> remainingMap = new HashMap<>();
+        while (remaining != 0 && remainingMap.getOrDefault(remaining, 0) == 0) {
+            remainingMap.put(remaining, position);
+            remaining *= 10;
+            remaining %= num;
+            position++;
+        }
+        if (remaining == 0) {
+            return 0;
+        }
+        return position - remainingMap.getOrDefault(remaining, 0);
     }
 }
