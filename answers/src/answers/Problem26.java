@@ -32,13 +32,13 @@ public class Problem26 {
             int remaining = 1;
             int position = 0;
             HashMap<Integer, Integer> remainingMap = new HashMap<>();
-            while (remaining != 0 && remainingMap.get(remaining) == 0) {
+            while (remaining != 0 && remainingMap.getOrDefault(remaining, 0) == 0) {
                 remainingMap.put(remaining, position);
                 remaining *= 10;
                 remaining %= i;
                 position++;
             }
-            if (position - remainingMap.get(remaining) > longestLen) {
+            if (remaining != 0 && position - remainingMap.getOrDefault(remaining, 0) > longestLen) {
                 longestLen = position;
                 longestNum = i;
             }
