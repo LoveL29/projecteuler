@@ -1,5 +1,7 @@
 package answers;
 
+import java.util.HashMap;
+
 /**
  * Created by seok on 2017. 3. 4..
  *
@@ -27,16 +29,16 @@ public class Problem26 {
         int longestNum = 0;
         int longestLen = 0;
         for (int i = 1; i <= 1000; i++) {
-            int val = 1;
+            int remaining = 1;
             int position = 0;
-            int restArr[] = new int[i > 10 ? i : 10];
-            while (val != 0 && restArr[val] == 0) {
-                restArr[val] = position;
-                val *= 10;
-                val %= i;
+            HashMap<Integer, Integer> remainingMap = new HashMap<>();
+            while (remaining != 0 && remainingMap.get(remaining) == 0) {
+                remainingMap.put(remaining, position);
+                remaining *= 10;
+                remaining %= i;
                 position++;
             }
-            if (position > longestLen) {
+            if (position - remainingMap.get(remaining) > longestLen) {
                 longestLen = position;
                 longestNum = i;
             }
