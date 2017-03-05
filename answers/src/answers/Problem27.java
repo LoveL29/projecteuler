@@ -40,8 +40,7 @@ public class Problem27 {
         System.out.println(answerA * answerB);
     }
 
-    private static int getPrimeCount(int x, int y)
-    {
+    private static int getPrimeCount (int x, int y) {
         int primeCount = 0;
         for (int i = 0; i < 1000; i++) {
             if (i * i + i * x + y > 0 && isPrime(i * i + i * x + y)) {
@@ -53,8 +52,7 @@ public class Problem27 {
         return primeCount;
     }
 
-    private static boolean isPrime(int num)
-    {
+    private static boolean isPrime (int num) {
         for (int i = 2; i <= (int)Math.sqrt(num) + 1; i++) {
             if (num % i == 0) {
                 return false;
