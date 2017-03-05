@@ -41,15 +41,12 @@ public class Problem27 {
     }
 
     private static int getPrimeCount (int x, int y) {
-        int primeCount = 0;
-        for (int i = 0; i < 1000; i++) {
-            if (i * i + i * x + y > 0 && isPrime(i * i + i * x + y)) {
-                primeCount++;
-            } else {
-                break;
+        for (int i = 0; ; i++) {
+            int z = i * i + i * x + y;
+            if (z <= 0 || !isPrime(z)) {
+                return i;
             }
         }
-        return primeCount;
     }
 
     private static boolean isPrime (int num) {
