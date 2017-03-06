@@ -18,12 +18,12 @@ package answers;
  */
 public class Problem28 {
     public static void main(String[] args) {
-        System.out.println(spiralDiagonalsSum(501));
+        System.out.println(spiralDiagonalsSum(1001));
     }
 
     private static int spiralDiagonalsSum(int size) {
         int sum = 1;
-        for (int i = 3; i < size * 2; i += 2) {
+        for (int i = 3; i <= size; i += 2) {
             sum += 4 * i * i - 6 * (i - 1);
         }
         return sum;
