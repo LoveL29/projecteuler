@@ -1,6 +1,6 @@
 package answers;
 
-import java.util.ArrayList;
+import java.math.BigInteger;
 import java.util.HashSet;
 
 /**
@@ -20,10 +20,10 @@ import java.util.HashSet;
  */
 public class Problem29 {
     public static void main(String[] args) {
-        HashSet<Double> powHash = new HashSet<>();
-        for (double a = 2; a <= 100; a++) {
-            for (double b = 2; b <= 100; b++) {
-                powHash.add(Math.pow(a, b));
+        HashSet<BigInteger> powHash = new HashSet<>();
+        for (int a = 2; a <= 100; a++) {
+            for (int b = 2; b <= 100; b++) {
+                powHash.add(BigInteger.valueOf(a).pow(b));
             }
         }
         System.out.println(powHash.size());
