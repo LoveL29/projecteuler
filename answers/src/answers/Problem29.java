@@ -20,13 +20,12 @@ import java.util.HashSet;
  */
 public class Problem29 {
     public static void main(String[] args) {
-        ArrayList<Double> powList = new ArrayList<>();
+        HashSet<Double> powHash = new HashSet<>();
         for (double a = 2; a <= 100; a++) {
             for (double b = 2; b <= 100; b++) {
-                powList.add(Math.pow(a, b));
+                powHash.add(Math.pow(a, b));
             }
         }
-        HashSet<Double> powHash = new HashSet<>(powList);
         System.out.println(powHash.size());
     }
 }
