@@ -39,19 +39,22 @@ public class Problem32 {
 
     private static boolean checkPandigital (int a, int b, int c) {
         HashSet<Integer> digitSet = new HashSet<>();
+        int count = 0;
         while (a > 0) {
             digitSet.add(a % 10);
             a /= 10;
+            count++;
         }
         while (b > 0) {
             digitSet.add(b % 10);
             b /= 10;
+            count++;
         }
         while (c > 0) {
             digitSet.add(c % 10);
             c /= 10;
+            count++;
         }
-        digitSet.remove(0);
-        return digitSet.size() == 9;
+        return !digitSet.contains(0) && count == 9 && digitSet.size() == 9;
     }
 }
