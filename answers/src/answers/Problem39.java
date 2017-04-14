@@ -14,14 +14,14 @@ public class Problem39 {
         // => b = p(p - 2a) / 2(p - a)
         int result = 0;
         int mostSolutions = 0;
-        for (int p = 2; p <= 1000; p++) {
+        for (int p = 12; p <= 1000; p++) {
             int solutions = 0;
             for (int a = 2; a < (p / 3); a++) {
                 if (p * (p - 2 * a) % (2 * (p - a)) == 0) {
                     solutions++;
                 }
             }
-            if(solutions > mostSolutions){
+            if (solutions > mostSolutions) {
                 mostSolutions = solutions;
                 result = p;
             }
