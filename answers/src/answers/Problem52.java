@@ -1,7 +1,6 @@
 package answers;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * Created by seok on 2018. 1. 11..
@@ -30,7 +29,7 @@ public class Problem52 {
         System.out.println(result);
     }
 
-	private boolean compareNumbers(long num1, long num2) {
+	private static boolean compareNumbers(long num1, long num2) {
 		String str1 = String.valueOf(num1);
 		String str2 = String.valueOf(num2);
 
@@ -41,13 +40,13 @@ public class Problem52 {
 		int[] array1 = new int[10];
 		int[] array2 = new int[10];
 
-		for (int i = 0; i < s.length(); i++) {
-			array1[Integer.parseInt(str1.charAt(i))]++;
-			if (array1[Integer.parseInt(str1.charAt(i))] > 1) {
+		for (int i = 0; i < str1.length(); i++) {
+			array1[Character.getNumericValue(str1.charAt(i))]++;
+			if (array1[Character.getNumericValue(str1.charAt(i))] > 1) {
 				return false;
 			}
-			array2[Integer.parseInt(str2.charAt(i))]++;
-			if (array2[Integer.parseInt(str2.charAt(i))] > 1) {
+			array2[Character.getNumericValue(str2.charAt(i))]++;
+			if (array2[Character.getNumericValue(str2.charAt(i))] > 1) {
 				return false;
 			}
 		}
